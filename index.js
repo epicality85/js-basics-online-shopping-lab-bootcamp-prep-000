@@ -136,17 +136,24 @@ function total()
 
 function removeFromCart(item) 
 {
+
     // variable to find the item
     var count = 0
     
     // itemNumber for if the item is found
     var itemNumber = -1
     
+
+  // first check the cart is not empty
+  if(cart.length > 0)
+  {
+
     // check if the item is in your cart
     for(let i = 0; i < cart.length; i++)
     {
       if(cart[i].itemName === item)
       {
+
         count = 1
         itemNumber = i
       }
@@ -163,6 +170,16 @@ function removeFromCart(item)
     {
       return "That item is not in your cart."
     }
+
+        cart.splice(i, 1)
+      }
+      else
+      {
+        return "Your cart is empty."
+      }
+    }
+  }
+
 }
 
 function placeOrder(cardNumber) 
